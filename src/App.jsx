@@ -9,10 +9,14 @@ function App() {
 
   return (
     <>
-    <div className='flex'>
-    <Sidebar/>
-    <Outlet/>
-    </div>
+      <div className='grid lg:grid-cols-12'>
+        <div className='grid col-span-2 '>
+          <Sidebar />
+        </div>
+        <div className='grid col-span-10'>
+          <Outlet />
+        </div>
+      </div>
     </>
   )
 }

@@ -5,8 +5,8 @@ const Sidebar = () => {
     const [extended, setExtended] = useState(true);
 
     return (
-        <aside className='max-h-max  hidden md:block w-64 bg-gray-200'>
-            <nav className='h-full flex flex-col bg-white border-r shadow-sm'>
+        <aside className='hidden md:block'>
+            <nav className='h-full flex flex-col border-r shadow-sm bg-slate-100'>
                 <div className='p-4 pb-2 flex justify-between items-center'>
                 <img src='../src/assets/logo.svg' className='w-32' />
                     <button className='pl-5' onClick={() => setExtended((curr) => !curr)}>
@@ -15,7 +15,7 @@ const Sidebar = () => {
                 </div>
                 <ul className='flex-1 px-3 py-5 '>
                     <li className='flex justify-center border-2 p-4 mt-2 rounded-xl border-orange-400'><Link to='/'>Home</Link></li>
-                    <li className='flex justify-center border-2 p-4 mt-2 rounded-xl border-orange-400'><Link to='/Assets'>Assets</Link></li>
+                    <li className='flex justify-center border-2 p-4 mt-2 rounded-xl border-orange-400'><Link to='/assets'>Assets</Link></li>
                     <li className='flex justify-center border-2 p-4 mt-2 rounded-xl border-orange-400'><Link to='/maintenance'>Maintenance</Link></li>
                 </ul>
             </nav>
