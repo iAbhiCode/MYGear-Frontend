@@ -1,9 +1,26 @@
+import axios from 'axios'
 import React from 'react'
-import UpdateAsset from './UpdateAsset'
 import { Link } from 'react-router-dom'
 
 export default function MotorCardDetails(props) {
-    console.log(props.id);
+
+    // console.log(props.id);
+    const {id ,name} = props
+    const deleteAsset = ()=>{
+        if(window.confirm(`Are Sure you want to delete ${name}`)){
+            axios.delete("http://localhost:5000/assets/"+id)
+            .then(response=>{
+                console.log(response.data)
+                alert("Asset Deleted Successfully")
+            })
+            .catch(err=>console.log(err))
+        }
+        else{
+            alert("Not Deleted")
+        }
+        // console.log(id, name);
+
+    }
     return (
         <div className='border-2 rounded-xl p-2 mx-4 my-4'>
             <ul>
@@ -24,8 +41,8 @@ export default function MotorCardDetails(props) {
             </ul>
             <hr className='my-2'/>
             <div className='flex flex-row gap-4'>
-            <button className='border-2 rounded-xl bg-orange-400 text-white p-4 w-64'><Link to={`/updateAsset/${props.id}`}>Update</Link></button>
-            <button className='border-2 rounded-xl bg-orange-400 text-white p-4 w-64'>Remove</button>
+            <button className='border-2 rounded-xl bg-orange-400 text-white p-4 w-64'><Link to={`/updateAsset/${id}`}>Update</Link></button>
+            <button onClick={deleteAsset} className='border-2 rounded-xl bg-orange-400 text-white p-4 w-64 '>Remove</button>
             </div>
         </div>
     )

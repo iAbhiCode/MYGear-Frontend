@@ -4,7 +4,7 @@ import { AddAssetScehema } from '../Utils/AddAssetSchema';
 import axios from 'axios';
 
 export default function AddAsset() {
-    
+
     const initialValues = {
         assetId: "",
         name: "",
@@ -27,9 +27,15 @@ export default function AddAsset() {
         validationSchema: AddAssetScehema,
         onSubmit: (values, action) => {
             console.log(values);
-            axios.post("http://localhost:5000/assets",{values})
-            .then(response => console.log(response))
-            .catch(error => console.error(error))
+            axios.post("http://localhost:5000/assets", { values })
+                .then(response => {
+                    console.log(response.data)
+                    alert("Asset Added SuccessFully")
+                })
+                .catch(error => {
+                    alert(error.response.data.details)
+                    console.error(error.response.data)
+                })
 
             action.resetForm()
         }

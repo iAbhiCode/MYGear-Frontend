@@ -43,7 +43,10 @@ export default function AddAsset() {
         onSubmit: (values, action) => {
             // console.log(values);
             axios.patch("http://localhost:5000/assets/" + id, { values })
-                .then(response => {console.log(response)})
+                .then(response => {
+                    console.log(response)
+                    // alert("Asset Updated Successfully")
+                })
                 .catch(error => console.error(error))
                 
                 action.resetForm()

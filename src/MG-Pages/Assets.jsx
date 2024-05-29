@@ -50,7 +50,7 @@ export default function Assets() {
     <>
       <div className='grid'>
         <div className='flex justify-center items-center '>
-          <h1 className='py-8 text-4xl font-bold leading-7 text-gray-900 mx-auto'>All Assets</h1>
+          <h1 className='py-8 text-4xl font-bold leading-7 text-gray-900 mx-auto'>{!addState ? 'All Assets' : 'Add Asset'}</h1>
           {!addState ? <button onClick={handleClick} className='border-2 rounded-xl py-2 px-4 mr-4'><Link to="#">Add Asset</Link></button> : <button onClick={handleClick} className='border-2 rounded-xl py-2 px-10 mr-4'> X </button>}
         </div>
         {addState ?
