@@ -1,10 +1,13 @@
 import { useFormik } from 'formik'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { AddAssetScehema } from '../Utils/AddAssetSchema';
 import axios from 'axios';
+import { useNavigate, useParams } from 'react-router-dom';
 
 export default function AddAsset() {
-    
+
+    const {id} = useParams();
+    const navigate = useNavigate()
     const initialValues = {
         assetId: "",
         name: "",
@@ -21,17 +24,30 @@ export default function AddAsset() {
         current: "",
         speed: ""
     }
+    useEffect(() => {
+        const assetData = async () => {
+            try {
+                const response = await axios.get('http://localhost:5000/assets/'+ id)
+                setValues(response.data)
+                // console.log(response.data)
+            } catch (error) {
+                console.error(error)
+            }
+        }
+        assetData()
+    }, [id])
 
-    const { values, errors, handleChange, handleBlur, handleSubmit, touched } = useFormik({
+    const { setValues, values, errors, handleChange, handleBlur, handleSubmit, touched } = useFormik({
         initialValues: initialValues,
         validationSchema: AddAssetScehema,
         onSubmit: (values, action) => {
-            console.log(values);
-            axios.post("http://localhost:5000/assets",{values})
-            .then(response => console.log(response))
-            .catch(error => console.error(error))
-
-            action.resetForm()
+            // console.log(values);
+            axios.patch("http://localhost:5000/assets/" + id, { values })
+                .then(response => {console.log(response)})
+                .catch(error => console.error(error))
+                
+                action.resetForm()
+                navigate("/assets")
         }
     })
     // console.log(errors); 
@@ -195,7 +211,7 @@ export default function AddAsset() {
 
                     </div>
                 </div>
-                <button type='submit' className='border-2 rounded-xl bg-orange-400 text-white p-4 w-64' >Add Asset</button>
+                <button type='submit' className='border-2 rounded-xl bg-orange-400 text-white p-4 w-64' >Update Asset</button>
             </form>
         </div>
     )

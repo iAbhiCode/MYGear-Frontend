@@ -6,6 +6,7 @@ import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } 
 import Assets from './MG-Pages/Assets.jsx'
 import Maintenance from './MG-Pages/Maintenance.jsx'
 import Home from './MG-Pages/Home.jsx'
+import UpdateAsset from './MG-Components/UpdateAsset.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -14,6 +15,7 @@ const router = createBrowserRouter(
       <Route path='' element={<Home/>}/>
       <Route path='/assets' element={<Assets/>}/>
       <Route path='/maintenance' element={<Maintenance/>}/>
+      <Route path='/updateAsset/:id' element={<UpdateAsset/>}/>
     </Route>
   
   )
