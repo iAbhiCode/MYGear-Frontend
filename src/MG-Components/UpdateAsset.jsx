@@ -1,7 +1,7 @@
 import { useFormik } from 'formik'
 import React, { useState, useEffect } from 'react'
 import { AddAssetScehema } from '../Utils/AddAssetSchema';
-import axios from 'axios';
+import axios from '../Utils/axiosInstance'
 import { useNavigate, useParams } from 'react-router-dom';
 
 export default function AddAsset() {
@@ -27,7 +27,7 @@ export default function AddAsset() {
     useEffect(() => {
         const assetData = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/assets/'+ id)
+                const response = await axios.get('/assets/'+ id)
                 setValues(response.data)
                 // console.log(response.data)
             } catch (error) {
@@ -42,7 +42,7 @@ export default function AddAsset() {
         validationSchema: AddAssetScehema,
         onSubmit: (values, action) => {
             // console.log(values);
-            axios.patch("http://localhost:5000/assets/" + id, { values })
+            axios.patch("/assets/" + id, { values })
                 .then(response => {
                     console.log(response)
                     // alert("Asset Updated Successfully")

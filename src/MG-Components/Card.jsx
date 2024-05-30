@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Card(props) {
     return (
-        <div className='grid grid-cols-1 border-4 rounded-xl place-items-center border-orange-400'>
+        <div className='grid grid-cols-1 border-4 rounded-xl place-items-center border-orange-400 bg-slate-200'>
             <img src='src/assets/motor.png' className='h-60 rounded-xl mt-2 ' />
             <div className='flex flex-col items-center'>
                 <h2 className='font-semibold py-3'>{props.name}</h2>

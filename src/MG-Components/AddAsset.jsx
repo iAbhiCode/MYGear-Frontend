@@ -1,7 +1,7 @@
 import { useFormik } from 'formik'
 import React from 'react'
 import { AddAssetScehema } from '../Utils/AddAssetSchema';
-import axios from 'axios';
+import axios from '../Utils/axiosInstance'
 
 export default function AddAsset() {
 
@@ -27,7 +27,7 @@ export default function AddAsset() {
         validationSchema: AddAssetScehema,
         onSubmit: (values, action) => {
             console.log(values);
-            axios.post("http://localhost:5000/assets", { values })
+            axios.post("/assets", { values })
                 .then(response => {
                     console.log(response.data)
                     alert("Asset Added SuccessFully")

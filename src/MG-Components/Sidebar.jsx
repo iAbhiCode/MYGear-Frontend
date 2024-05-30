@@ -14,9 +14,9 @@ const Sidebar = () => {
                     </button>
                 </div>
                 <ul className='flex-1 px-3 py-5 '>
-                    <li className='flex justify-center border-2 p-4 mt-2 rounded-xl border-orange-400'><Link to='/'>Home</Link></li>
-                    <li className='flex justify-center border-2 p-4 mt-2 rounded-xl border-orange-400'><Link to='/assets'>Assets</Link></li>
-                    <li className='flex justify-center border-2 p-4 mt-2 rounded-xl border-orange-400'><Link to='/maintenance'>Maintenance</Link></li>
+                    <li className='flex justify-center border-2 p-4 mt-2 rounded-xl border-orange-400 bg-slate-200 text-xl'><Link to='/'>Home</Link></li>
+                    <li className='flex justify-center border-2 p-4 mt-2 rounded-xl border-orange-400 bg-slate-200 text-xl'><Link to='/assets'>Assets</Link></li>
+                    <li className='flex justify-center border-2 p-4 mt-2 rounded-xl border-orange-400 bg-slate-200 text-xl'><Link to='/maintenance'>Maintenance</Link></li>
                 </ul>
             </nav>
         </aside >

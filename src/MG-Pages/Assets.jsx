@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 import MotorCardDetails from '../MG-Components/MotorCardDetails'
 import AddAsset from '../MG-Components/AddAsset'
 import { Link } from 'react-router-dom'
-import axios from 'axios'
+import axios from '../Utils/axiosInstance'
+
 
 
 export default function Assets() {
@@ -11,11 +12,10 @@ export default function Assets() {
   const handleClick = () => {
     setAddState(curr => !curr)
   }
-
   useEffect(() => {
     const assetData = async () => {
       try{
-        const response = await axios.get('http://localhost:5000/assets')
+        const response = await axios.get('/assets')
         setAssetData(response.data)
         // console.log(response.data)
       }catch(error){
@@ -23,8 +23,8 @@ export default function Assets() {
       }
     }
     assetData()
-  },[])
-
+  },[assetData])
+  
   const assetDataComp = assetData.map((data)=>{
     // console.log(data);
     return <MotorCardDetails 

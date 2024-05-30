@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Card from '../MG-Components/Card'
-import axios from 'axios'
+import axios from '../Utils/axiosInstance'
 
 export default function Home() {
   const[displayData,setDisplayData] = useState([])
@@ -8,9 +8,9 @@ export default function Home() {
   useEffect(() => {
     const displayData = async () => {
       try{
-        const respone = await axios.get('http://localhost:5000/assets')
+        const respone = await axios.get('/assets')
         setDisplayData(respone.data)
-        console.log(respone.data);
+        // console.log(respone.data);
       }catch(error){
         console.log(err)
       }
@@ -24,9 +24,9 @@ export default function Home() {
 
 
   return (
-    <div className='flex flex-col justify-center items-center'>
+    <div className='flex flex-col justify-center items-center bg-slate-100'>
       <h1 className='py-8 text-4xl font-bold leading-7 text-gray-900 '>All Products</h1>
-      <div className='grid md:grid-cols-3 sm:grid-cols-1 gap-5 mx-10'>
+      <div className='grid md:grid-cols-3 sm:grid-cols-1 gap-5 mx-10 '>
         {homePageData}
       </div>
     </div>
