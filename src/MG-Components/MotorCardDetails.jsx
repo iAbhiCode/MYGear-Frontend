@@ -41,7 +41,7 @@ export default function MotorCardDetails(props) {
             </ul>
             <hr className='my-2'/>
             <div className='flex flex-row gap-4'>
-            <button className='border-2 rounded-xl bg-orange-400 text-white p-4 w-64'><Link to={`/updateAsset/${id}`}>Update</Link></button>
+            <button className='border-2 rounded-xl bg-orange-400 text-white p-4 w-64'><Link to={`/update-asset/${id}`}>Update</Link></button>
             <button onClick={deleteAsset} className='border-2 rounded-xl bg-orange-400 text-white p-4 w-64 '>Remove</button>
             </div>
         </div>

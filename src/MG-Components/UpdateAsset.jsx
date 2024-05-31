@@ -1,5 +1,5 @@
 import { useFormik } from 'formik'
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { AddAssetScehema } from '../Utils/AddAssetSchema';
 import axios from '../Utils/axiosInstance'
 import { useNavigate, useParams } from 'react-router-dom';
@@ -41,7 +41,7 @@ export default function AddAsset() {
         initialValues: initialValues,
         validationSchema: AddAssetScehema,
         onSubmit: (values, action) => {
-            // console.log(values);
+            console.log(values);
             axios.patch("/assets/" + id, { values })
                 .then(response => {
                     console.log(response)

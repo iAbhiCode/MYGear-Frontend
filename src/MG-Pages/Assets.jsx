@@ -23,7 +23,7 @@ export default function Assets() {
       }
     }
     assetData()
-  },[assetData])
+  },[addState])
   
   const assetDataComp = assetData.map((data)=>{
     // console.log(data);
