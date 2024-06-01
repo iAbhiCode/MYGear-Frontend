@@ -1,16 +1,21 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Sidebar from './MG-Components/Sidebar'
+import { Outlet } from 'react-router-dom'
+import { SidebarStatePrvoider } from './MG-Components/SidebarState'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-    <h1 className="text-3xl font-bold underline">
-        My Gear Initial Project Setup
-    </h1>
+      <SidebarStatePrvoider>
+        <div className='grid lg:grid-cols-12'>
+          <div className='grid lg:col-span-2 '>
+            <Sidebar />
+          </div>
+          <div className='grid lg:col-span-10'>
+            <Outlet />
+          </div>
+        </div>
+      </SidebarStatePrvoider >
     </>
   )
 }
