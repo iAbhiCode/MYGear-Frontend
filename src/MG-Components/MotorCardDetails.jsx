@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from '../Utils/axiosInstance'
 import React from 'react'
 import { Link } from 'react-router-dom'
 
@@ -8,7 +8,7 @@ export default function MotorCardDetails(props) {
     const { id, name } = props
     const deleteAsset = () => {
         if (window.confirm(`Are Sure you want to delete ${name}`)) {
-            axios.delete('http://localhost:5000/assets/' + id)
+            axios.delete('/assets/' + id)
                 .then(response => {
                     console.log(response.data)
                     alert("Asset Deleted Successfully")
