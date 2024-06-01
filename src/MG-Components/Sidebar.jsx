@@ -1,15 +1,16 @@
 import React, { useState, useContext } from 'react'
 import { Link } from 'react-router-dom';
 import { SidebarStateContext } from './SidebarState';
+import logo from  '../assets/logo.svg'
 
 const Sidebar = () => {
     const sidebarState = useContext(SidebarStateContext)
-    console.log(sidebarState);
+    // console.log(sidebarState);
     return (
         <aside className='hidden lg:block mr-2'>
             <nav className='h-full flex flex-col border-r shadow-sm bg-slate-100 rounded-r-2xl'>
                 <div className='p-4 pb-2 flex justify-between items-center'>
-                    <img src='../src/assets/logo.svg' className='w-32' />
+                    <img src={logo} className='w-32' />
 
                 </div>
                 <ul className='flex-1 px-3 py-5 '>
