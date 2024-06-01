@@ -40,7 +40,7 @@ const RaisieTicket = () => {
                         value={values.ticketId}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        className='mx-2 border-2 rounded-xl' />
+                        className='mx-2 border-2 rounded-xl px-2' />
                 </div>
                 {errors.ticketId && touched.ticketId ? <p className='text-red-400'>{errors.ticketId}</p> : null}
 
@@ -52,7 +52,7 @@ const RaisieTicket = () => {
                         value={values.assetId}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        className='mx-2 border-2 rounded-xl' />
+                        className='mx-2 border-2 rounded-xl px-2' />
                 </div>
                 {errors.assetId && touched.assetId ? <p className='text-red-400'>{errors.assetId}</p> : null}
 
@@ -65,7 +65,7 @@ const RaisieTicket = () => {
                         value={values.status}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        className='mx-2 border-2 rounded-xl' 
+                        className='mx-2 border-2 rounded-xl px-2' 
                         list='statusOptions'/>
                         <datalist id='statusOptions'>
                         <option value="Open"/>
@@ -83,7 +83,7 @@ const RaisieTicket = () => {
                         value={values.issueDescription}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        className='mx-2 border-2 rounded-xl' />
+                        className='mx-2 border-2 rounded-xl px-2' />
                 </div>
                 {errors.issueDescription && touched.issueDescription ? <p className='text-red-400'>{errors.issueDescription}</p> : null}
 
@@ -95,7 +95,7 @@ const RaisieTicket = () => {
                         value={values.date}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        className='mx-2 border-2 rounded-xl' />
+                        className='mx-2 border-2 rounded-xl px-2' />
                 </div>
                 {errors.date && touched.date ? <p className='text-red-400'>{errors.date}</p> : null}
 

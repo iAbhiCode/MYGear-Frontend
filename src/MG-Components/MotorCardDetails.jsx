@@ -5,24 +5,24 @@ import { Link } from 'react-router-dom'
 export default function MotorCardDetails(props) {
 
     // console.log(props.id);
-    const {id ,name} = props
-    const deleteAsset = ()=>{
-        if(window.confirm(`Are Sure you want to delete ${name}`)){
-            axios.delete('http://localhost:5000/assets/'+id)
-            .then(response=>{
-                console.log(response.data)
-                alert("Asset Deleted Successfully")
-            })
-            .catch(err=>console.log(err))
+    const { id, name } = props
+    const deleteAsset = () => {
+        if (window.confirm(`Are Sure you want to delete ${name}`)) {
+            axios.delete('http://localhost:5000/assets/' + id)
+                .then(response => {
+                    console.log(response.data)
+                    alert("Asset Deleted Successfully")
+                })
+                .catch(err => console.log(err))
         }
-        else{
+        else {
             alert("Not Deleted")
         }
         // console.log(id, name);
 
     }
     return (
-        <div className='border-2 rounded-xl p-2 mx-4 my-4'>
+        <div className='border-2 rounded-xl p-2 mx-8 my-4'>
             <ul>
                 <li className='text-xl'>Asset ID : {props.assetId}</li>
                 <li className='text-xl'>Name: {props.name}</li>
@@ -39,10 +39,10 @@ export default function MotorCardDetails(props) {
                 <li className='text-xl'>Current: {props.current} A</li>
                 <li className='text-xl'>Speed: {props.speed} RPM</li>
             </ul>
-            <hr className='my-2'/>
-            <div className='flex flex-row gap-4'>
-            <button className='border-2 rounded-xl bg-orange-400 text-white p-4 w-64'><Link to={`/update-asset/${id}`}>Update</Link></button>
-            <button onClick={deleteAsset} className='border-2 rounded-xl bg-orange-400 text-white p-4 w-64 '>Remove</button>
+            <hr className='my-2' />
+            <div className='flex flex-row gap-4 over '>
+                <button className=' rounded-xl bg-slate-400 text-white p-4 w-64 '><Link to={`/update-asset/${id}`}>Update</Link></button>
+                <button onClick={deleteAsset} className='rounded-xl bg-red-300 text-white p-4 w-64 '>Remove</button>
             </div>
         </div>
     )

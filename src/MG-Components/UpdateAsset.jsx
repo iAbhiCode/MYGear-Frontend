@@ -2,7 +2,7 @@ import { useFormik } from 'formik'
 import React, { useEffect } from 'react'
 import { AddAssetScehema } from '../Utils/AddAssetSchema';
 import axios from '../Utils/axiosInstance'
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
 export default function AddAsset() {
 
@@ -214,7 +214,10 @@ export default function AddAsset() {
 
                     </div>
                 </div>
-                <button type='submit' className='border-2 rounded-xl bg-orange-400 text-white p-4 w-64' >Update Asset</button>
+                <div>
+                <button type='submit' className='border-2 rounded-xl bg-slate-400 text-white p-4 w-64' >Update Asset</button>
+                <button className=' rounded-xl bg-red-300 text-white p-4 w-64 ml-2' ><Link to='/assets'>Cancel</Link></button>
+                </div>
             </form>
         </div>
     )
